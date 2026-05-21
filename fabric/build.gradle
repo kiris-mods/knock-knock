@@ -1,22 +1,18 @@
 plugins {
     id "multiloader-loader"
-    id "fabric-loom"
+    id "net.fabricmc.fabric-loom"
 }
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.layered {
-        officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-${parchment_minecraft}:${parchment_version}@zip")
-    }
-
-    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}+${minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}+${minecraft_version}"
 
     // Dependencies we use for this mod to run as we expect it to.
 
     // Optional
-    modImplementation "maven.modrinth:jade:${jade_fabric_version}+fabric"
-    modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
+    implementation "maven.modrinth:jade:${jade_fabric_version}+fabric"
+    implementation "com.terraformersmc:modmenu:${modmenu_version}"
 }
 
 loom {

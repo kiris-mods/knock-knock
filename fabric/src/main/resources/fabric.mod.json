@@ -5,15 +5,20 @@
   "name": "${mod_name}",
   "description": "${description}",
   "authors": [
-    "${author}"
+    {
+      "name": "KiriCattus",
+      "contact": {
+        "homepage": "https://tophatcat.dev"
+      }
+    }
   ],
   "contact": {
-    "homepage": "${display_url}",
-    "sources": "${mod_source}",
-    "issues": "${mod_source}/issues"
+    "homepage": "${homepage_url}",
+    "sources": "${sources_url}",
+    "issues": "${issues_url}"
   },
-  "license": "${license}",
-  "icon": "logo.png",
+  "license": "${license_url}",
+  "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -22,14 +27,14 @@
   },
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",
-    "fabric": "*",
-    "minecraft": "${minecraft_version}",
+    "fabric-api": "*",
+    "minecraft": "=${minecraft_version}",
     "java": ">=${java_version}"
   },
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.discord": "${discord}",
+        "modmenu.discord": "${discord_url}",
         "modmenu.modrinth": "${modrinth_url}",
         "modmenu.curseforge": "${curseforge_url}"
       },
