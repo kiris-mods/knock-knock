@@ -7,7 +7,7 @@ on:
 env:
   JAVA_VERSION: 25
   BUILD_NUMBER: ${{ github.run_number }}
-  MAVEN_UPLOAD_URL: ${{ secrets.MAVEN_UPLOAD_URL }}
+  MAVEN_UPLOfAD_URL: ${{ secrets.MAVEN_UPLOAD_URL }}
   MAVEN_UPLOAD_USERNAME: ${{ secrets.MAVEN_UPLOAD_USERNAME }}
   MAVEN_UPLOAD_PASSWORD: ${{ secrets.MAVEN_UPLOAD_PASSWORD }}
   TAG: ${{ github.ref_name }}
@@ -56,25 +56,25 @@ jobs:
         continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.event.repository.name }}-Common-${{ env.TAG }}
+          name: ${{ github.event.repository.name }}-common-${{ env.TAG }}
           path: |
-            Common/build/libs/*.jar
+            common/build/libs/*.jar
 
       - name: Upload build artifacts (Fabric)
         continue-on-error: true
         uses: actions/upload-artifact@v6
         with:
-          name: ${{ github.event.repository.name }}-Fabric-${{ env.TAG }}
+          name: ${{ github.event.repository.name }}-fabric-${{ env.TAG }}
           path: |
-            Fabric/build/libs/*.jar
+            fabric/build/libs/*.jar
 
       - name: Upload build artifacts (NeoForge)
         continue-on-error: true
         uses: actions/upload-artifact@v6
         with:
-          name: ${{ github.event.repository.name }}-NeoForge-${{ env.TAG }}
+          name: ${{ github.event.repository.name }}-neoforge-${{ env.TAG }}
           path: |
-            NeoForge/build/libs/*.jar
+            neoforge/build/libs/*.jar
 
       - name: Generate build attestation
         uses: actions/attest-build-provenance@v3
@@ -94,23 +94,23 @@ jobs:
       - name: Download build artifacts (Common)
         uses: actions/download-artifact@v7
         with:
-          name: ${{ github.event.repository.name }}-Common-${{ env.TAG }}
+          name: ${{ github.event.repository.name }}-common-${{ env.TAG }}
           path: |
-            Common/build/libs
+            common/build/libs
 
       - name: Download build artifacts (Fabric)
         uses: actions/download-artifact@v7
         with:
-          name: ${{ github.event.repository.name }}-Fabric-${{ env.TAG }}
+          name: ${{ github.event.repository.name }}-fabric-${{ env.TAG }}
           path: |
-            Fabric/build/libs
+            fabric/build/libs
 
       - name: Download build artifacts (NeoForge)
         uses: actions/download-artifact@v7
         with:
-          name: ${{ github.event.repository.name }}-NeoForge-${{ env.TAG }}
+          name: ${{ github.event.repository.name }}-neoforge-${{ env.TAG }}
           path: |
-            NeoForge/build/libs
+            neoforge/build/libs
 
       - name: Publish (GitHub Releases)
         id: publish_github
