@@ -126,12 +126,12 @@ jobs:
       fail-fast: false
       matrix:
         platform: [ 'Curseforge', 'Modrinth' ]
-        loader: [ 'Fabric', 'NeoForge' ]
+        loader: [ 'fabric', 'neoforge' ]
     needs: build
     runs-on: ubuntu-latest
     outputs:
-      modrinth_id: ${{ steps.store_ids.outputs.Fabric_modrinth_id }}
-      curseforge_id: ${{ steps.store_ids.outputs.Fabric_curseforge_id }}
+      modrinth_id: ${{ steps.store_ids.outputs.fabric_modrinth_id }}
+      curseforge_id: ${{ steps.store_ids.outputs.fabric_curseforge_id }}
     steps:
       - name: Download build artifacts (${{ matrix.loader }})
         uses: actions/download-artifact@v7
