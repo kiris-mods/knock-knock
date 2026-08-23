@@ -7,7 +7,7 @@ val tag = providers.environmentVariable("TAG")
 val buildNumber = providers.environmentVariable("BUILD_NUMBER").map { "build.${it}" }
 
 version = tag.orElse(provider { buildString {
-    append("0.1.0-development")
+    append("3.0.0-development")
     if(!tag.isPresent) {
         append(buildNumber.map { "+${it}" }.getOrElse(""))
     }

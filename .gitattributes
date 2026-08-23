@@ -1,5 +1,4 @@
-# Store and check out repository text as LF on every platform. Windows command
-# files are the sole exception below.
+# Auto-detect text files and normalize them to LF in the repository
 * text=auto eol=lf
 *.bat text eol=crlf
 *.patch text eol=lf
