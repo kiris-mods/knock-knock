@@ -2,32 +2,28 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         mavenCentral()
-        maven("https://maven.neoforged.net/releases") {
+        maven ("https://maven.neoforged.net/releases") {
             name = "NeoForge"
         }
-        exclusiveContent {
-            forRepository {
-                maven("https://maven.fabricmc.net") {
-                    name = "Fabric"
-                }
-            }
-            filter {
-                includeGroupAndSubgroups("net.fabricmc")
-                includeGroup("net.fabricmc.fabric-loom")
-            }
+        maven ("https://maven.fabricmc.net") {
+            name = "Fabric"
+        }
+        maven ("https://maven.uuid.gg/releases") {
+            name = "Up-Mods"
         }
     }
-
-    includeBuild("build-logic")
 }
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+    // https://github.com/Up-Mods/multiloader-gradle-plugin
+    id("dev.upcraft.gradle.multiloader.settings") version "0.2.1"
 }
 
+rootProject.name = "KnockKnock"
+
 // This should match the mod ID so that the published coordinates can be sensible
-rootProject.name = "knockknock"
-listOf("common", "fabric", "neoforge").forEach {
+listOf("Common", "Fabric", "NeoForge").forEach {
     include(it)
     project(":$it").name = "${rootProject.name}-$it"
 }

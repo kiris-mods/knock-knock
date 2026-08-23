@@ -2,13 +2,17 @@
   "schemaVersion": 1,
   "id": "${mod_id}",
   "version": "${version}",
-  "name": "${mod_name}",
-  "description": "${description}",
+  "name": "${mod_display_name}",
+  "description": "${mod_description}",
   "authors": [
     {
       "name": "KiriCattus",
       "contact": {
-        "homepage": "https://tophatcat.dev"
+        "homepage": "https://tophatcat.dev",
+        "github": "https://github.com/KiriCattus",
+        "bsky": "https://bsky.app/profile/tophatcat.dev",
+        "curseforge": "https://www.curseforge.com/members/KiriCattus/projects",
+        "modrinth": "https://modrinth.com/user/KiriCattus"
       }
     }
   ],
@@ -19,24 +23,15 @@
   },
   "license": "${license_url}",
   "icon": "icon.png",
-  "environment": "*",
   "entrypoints": {
     "main": [
       "dev.tophatcat.knockknock.KnockKnockFabric"
     ]
   },
-  "depends": {
-    "fabricloader": ">=${fabric_loader_version}",
-    "fabric-api": "*",
-    "minecraft": "=${minecraft_version}",
-    "java": ">=${java_version}"
-  },
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.discord": "${discord_url}",
-        "modmenu.modrinth": "${modrinth_url}",
-        "modmenu.curseforge": "${curseforge_url}"
+        "modmenu.discord": "${discord_url}"
       },
       "update_checker": true
     },
@@ -46,9 +41,19 @@
       "loaders": [
         "fabric"
       ],
+      "java_version": [
+        "${java_version}"
+      ],
       "dependencies": [
         "fabric-api(required){modrinth:P7dR8mSH}{curseforge:306612}"
       ]
     }
-  }
+  },
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "java": ">=${java_version}",
+    "minecraft": "=${minecraft_version}",
+    "fabric-api": "${fabric_api_version}"
+  },
+  "environment": "*"
 }
