@@ -21,7 +21,7 @@
     "sources": "${sources_url}",
     "issues": "${issues_url}"
   },
-  "license": "${license_url}",
+  "license": "LGPL-2.1",
   "icon": "icon.png",
   "entrypoints": {
     "main": [

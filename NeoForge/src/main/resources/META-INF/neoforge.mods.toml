@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "*"
-license = "${license_url}" # Review your options at https://choosealicense.com
+license = "LGPL-2.1" # Review your options at https://choosealicense.com
 issueTrackerURL = "${issues_url}"
 sourcesUrl = "${sources_url}" # custom property that we parse ourselves
 
@@ -14,7 +14,7 @@ iconFile = "icon.png"
 authors = "KiriCattus"
 description = '''${mod_description}''' # Supports multiline text
 
-[[dependencies]]
+[dependencies]
 "${mod_id}" = [
   { modId = "neoforge", type = "required", versionRange = "[${neoforge_version},)" },
   { modId = "minecraft", type = "required", versionRange = "[${minecraft_version}]" },
