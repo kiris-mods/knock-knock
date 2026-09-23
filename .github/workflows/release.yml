@@ -139,6 +139,7 @@ jobs:
           files: |
             ${{ matrix.loader }}/build/libs/!(*-@(sources|javadoc|testmod)).jar
             ${{ matrix.loader }}/build/libs/*-@(sources|javadoc).jar
+          changelog-file: CHANGELOG.*
       - name: Publish (Curseforge)
         id: publish_curseforge
         if: matrix.platform == 'Curseforge'
@@ -149,6 +150,7 @@ jobs:
           files: |
             ${{ matrix.loader }}/build/libs/!(*-@(sources|javadoc|testmod)).jar
             ${{ matrix.loader }}/build/libs/*-@(sources|javadoc).jar
+          changelog-file: CHANGELOG.*
       - name: Store Platform IDs
         id: store_ids
         run: |
@@ -178,7 +180,7 @@ jobs:
       - name: Post to BlueSky
         uses: myConsciousness/bluesky-post@v5
         with:
-          text: "Knock knock! New update time! :D
+          text: "Look out! An update is knocking on the door! :D
 An update has been released for Knock Knock via [CurseForge](https://www.curseforge.com/minecraft/mc-mods/knockknock) and [Modrinth](https://modrinth.com/mod/knockknock)! [Check out my other mods here!](https://tophatcat.dev)"
           tags: "modding,minecraft,mods"
           retry-count: 5

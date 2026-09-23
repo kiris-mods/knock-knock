@@ -27,7 +27,7 @@ repositories {
     maven("https://maven.teamresourceful.com/repository/maven-releases") {
         name = "TeamResourceful"
     }
-    maven("https://maven.tophatcat.dev") {
+    maven("https://maven.tophatcat.dev/releases") {
         name = "TopHatCat's Maven"
     }
 }
@@ -43,21 +43,6 @@ neoForge {
     mods {
         register(modID) {
             sourceSet(sourceSets["main"])
-        }
-    }
-
-    runs {
-        register("data") {
-            clientData()
-            gameDirectory = file("run/data")
-
-            programArguments.addAll(
-                "--mod", modID,
-                "--all",
-                "--flat",
-                "--output", file("src/main/generated").absolutePath,
-                "--existing", file("src/main/resources").absolutePath
-            )
         }
     }
 }
