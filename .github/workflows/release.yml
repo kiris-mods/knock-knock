@@ -140,7 +140,6 @@ jobs:
           files: |
             ${{ matrix.loader }}/build/libs/!(*-@(sources|javadoc|testmod)).jar
             ${{ matrix.loader }}/build/libs/*-@(sources|javadoc).jar
-          changelog-file: CHANGELOG.*
       - name: Publish (Curseforge)
         id: publish_curseforge
         if: matrix.platform == 'Curseforge'
@@ -152,7 +151,6 @@ jobs:
           files: |
             ${{ matrix.loader }}/build/libs/!(*-@(sources|javadoc|testmod)).jar
             ${{ matrix.loader }}/build/libs/*-@(sources|javadoc).jar
-          changelog-file: CHANGELOG.*
       - name: Store Platform IDs
         id: store_ids
         run: |
